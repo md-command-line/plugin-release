@@ -5,11 +5,13 @@
   "author": "michaeldimmitt @MichaelDimmitt",
   "bugs": "https://github.com/MichaelDimmitt/plugin-release/issues",
   "dependencies": {
+    "@heroku-cli/command": "^8.1.26",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "tslib": "^1"
   },
   "devDependencies": {
+    "@heroku-cli/schema": "^1.0.6",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^2",
     "@oclif/test": "^1",
