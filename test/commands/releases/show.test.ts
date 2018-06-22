@@ -8,6 +8,13 @@ describe('show releases', () => {
     expect(ctx.stdout).to.contain('intense-crag-70741')
   })
 
+  test
+  .stdout()
+  .command(['releases:show', '-a', ''])
+  .it('show the release information for the app', ctx => {
+    expect(ctx.stdout).to.contain('')
+  })
+
   // test
   // .stdout()
   // .command(['releases:show', '--name', 'jeff'])
