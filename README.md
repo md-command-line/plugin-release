@@ -22,7 +22,7 @@ $ npm install -g plugin-release
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-plugin-release/0.0.0 darwin-x64 node-v10.4.0
+plugin-release/0.0.0 darwin-x64 node-v10.5.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -31,25 +31,36 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`oclif-example ask`](#oclif-example-ask)
+* [`oclif-example releases:show`](#oclif-example-releasesshow)
 
-## `oclif-example hello [FILE]`
+## `oclif-example ask`
 
-describe the command here
+show application name if found
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ oclif-example ask
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ oclif-example hello
-  hello world from ./src/hello.ts!
+  -a, --app=app        (required) app to run command against
+  -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.0.0/src/commands/hello.ts)_
+_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.0.0/src/commands/ask.ts)_
+
+## `oclif-example releases:show`
+
+show latest releases for an app
+
+```
+USAGE
+  $ oclif-example releases:show
+
+OPTIONS
+  -a, --app=app        (required) app to run command against
+  -r, --remote=remote  git remote of app to use
+```
+
+_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.0.0/src/commands/releases/show.ts)_
 <!-- commandsstop -->
