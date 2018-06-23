@@ -13,7 +13,7 @@ export default class Show extends Command {
   
   async run() {
     const {flags} = this.parse(Show)
-    Promise.all([
+    await Promise.all([
       this.heroku.get<Heroku.App>(`/apps/${flags.app}/`),
       this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
     ]).then(([checkApp, queryRelease]) => {
