@@ -1,12 +1,19 @@
 import {expect, test} from '@oclif/test'
 
 describe('show releases', () => {
+  test
+  .stdout()
+  .command(['releases:show', '-a', 'intense-crag-7074'])
+  .it('displays "error" if incorrect app name passed to the app', ctx => {
+    expect(ctx.stdout).to.contain('error')
+  })
+
   // brittle test
   test
   .stdout()
   .command(['releases:show', '-a', 'intense-crag-7074'])
-  .it('displays the error if incorrect app name passed to the app', ctx => {
-    expect(ctx.stdout).to.equal('{ resource: \'app\',\n  id: \'not_found\',\n  message: \'Couldn\\\'t find that app.\' }\n')
+  .it('displays the error not_found if incorrect app name passed to the app', ctx => {
+    expect(ctx.stdout).to.equal('error { resource: \'app\',\n  id: \'not_found\',\n  message: \'Couldn\\\'t find that app.\' }\n')
   })
   
   // brittle test
