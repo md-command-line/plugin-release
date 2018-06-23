@@ -20,7 +20,7 @@ export default class Show extends Command {
       let existance = checkApp
       let {body}:any = queryRelease
       logInfo(checkApp, queryRelease, this)
-    }).catch(error => { this.log(error.body)})
+    }).catch(error => { this.log('error',error.body)})
   }
 }
 
