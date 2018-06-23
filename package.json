@@ -56,6 +56,6 @@
     "prepare": "rm -rf lib && tsc",
     "test": "nyc mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md",
-    "internet": "bash -c -s 'curl https://www.example.com/ >>/dev/null;'"
+    "internet": "curl https://www.example.com/ >/dev/null;"
   }
 }
