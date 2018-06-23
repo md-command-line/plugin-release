@@ -15,15 +15,18 @@ export default class Show extends Command {
 
     const {flags} = this.parse(Show)
     let {body} = await this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
-    
+
     this.log(`${body.length} most recent releases shown:`)
-    for(let counter0 = 20; counter0 >= 0; counter0--) {
-      if (body.length > counter0) {
-        let {created_at, user, id} = body[counter0]
-        this.log(`Release v${counter0 + 1}:`) 
-        this.log(`  Start Date: ${created_at}`) 
-        this.log(`  Author: ${user.email}`) 
-        this.log(`  Id: ${id}`)   
+    const reversed = body.reverse()
+    for(let counter0 = 0; counter0 < 20; counter0++) {
+      // console.log(body.length, counter0)
+      if (counter0 < reversed.length) {
+        const {created_at, user, id} = reversed[counter0]
+        // implement with most recent first.
+        this.log(`Release v${body.length - counter0}:`)
+        this.log(`  Start Date: ${created_at}`)
+        this.log(`  Author: ${user.email}`)
+        this.log(`  Id: ${id}`)
       }
     }
   }
