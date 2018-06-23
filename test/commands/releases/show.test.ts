@@ -33,6 +33,13 @@ describe('show releases', () => {
     expect(ctx.stdout).to.contain('Id:')
   })
 
+  test
+  .stdout()
+  .command(['releases:show', '-a', 'intense-crag-70741'])
+  .it('ensure emoji displays for the app', ctx => {
+    expect(ctx.stdout).to.contain('🤓 ')
+  })
+
   // brittle test
   test
   .stdout()
