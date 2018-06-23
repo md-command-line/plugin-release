@@ -1,6 +1,6 @@
 {
   "name": "plugin-release",
-  "description": "Releasing Plugin to Heroku",
+  "description": "Plugin to handle release interactions for your Heroku App.",
   "version": "0.0.0",
   "author": "michaeldimmitt @MichaelDimmitt",
   "bugs": "https://github.com/MichaelDimmitt/plugin-release/issues",
