@@ -10,20 +10,34 @@ export default class Show extends Command {
     remote: flags.remote(),
     app: flags.app({required: true})
   }
-
+  
   async run() {
-
     const {flags} = this.parse(Show)
-    let {body} = await this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
-
-    this.log(`${body.length} most recent releases shown:`)
-    const result = body.slice(body.length-20, body.length).reverse()
-    .map((bodyElement:any, index:any) => {
-      const currentVersion = ((body.length) - index)
-      return `${releaseInfo(currentVersion, bodyElement)}`
-    })
-    console.log(result.toString())
+    Promise.all([
+      this.heroku.get<Heroku.App>(`/apps/${flags.app}/`),
+      this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
+    ]).then(([checkApp, queryRelease]) => {
+      let existance = checkApp
+      let {body}:any = queryRelease
+      logInfo(checkApp, queryRelease, this)
+    }).catch(error => { this.log(error.body)})
   }
+}
+
+function logInfo(appName:any,{body}:any, herokuObject:any){
+const name = appName.body.name
+herokuObject.log(
+`🤓  Application Name: ${name}
+${body.length} most recent releases shown:
+${gatherReleaseInfo(body).toString()}`
+)}
+
+function gatherReleaseInfo(body:any[]){
+  return body.slice(body.length-20, body.length).reverse()
+  .map((bodyElement:object, index:number) => {
+    const currentVersion = ((body.length) - index)
+    return `${releaseInfo(currentVersion, bodyElement)}`
+  })
 }
 
 function releaseInfo(currentVersion:any, {created_at, user, id}:any) {
