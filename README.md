@@ -22,7 +22,7 @@ $ npm install -g plugin-release
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-plugin-release/0.0.0 darwin-x64 node-v10.5.0
+plugin-release/0.1.0 darwin-x64 node-v10.5.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -47,7 +47,7 @@ OPTIONS
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.0.0/src/commands/ask.ts)_
+_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.0/src/commands/ask.ts)_
 
 ## `oclif-example releases:show`
 
@@ -62,5 +62,5 @@ OPTIONS
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.0.0/src/commands/releases/show.ts)_
+_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.0/src/commands/releases/show.ts)_
 <!-- commandsstop -->
