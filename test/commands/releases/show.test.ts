@@ -23,6 +23,16 @@ describe('show releases', () => {
     expect(ctx.stdout).to.contain('intense-crag-70741')
   })
 
+  test
+  .stdout()
+  .command(['releases:show', '-a', 'intense-crag-70741'])
+  .it('show the correct relese keys for the app', ctx => {
+    expect(ctx.stdout).to.contain('Application Name: intense-crag-70741', 'most recent releases shown:')
+    expect(ctx.stdout).to.contain('Release v:','Start Date:')
+    expect(ctx.stdout).to.contain('Author: ')
+    expect(ctx.stdout).to.contain('Id:')
+  })
+
   // brittle test
   test
   .stdout()
