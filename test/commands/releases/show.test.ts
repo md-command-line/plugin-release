@@ -15,7 +15,14 @@ describe('show releases', () => {
   .it('displays the error not_found if incorrect app name passed to the app', ctx => {
     expect(ctx.stdout).to.equal('error { resource: \'app\',\n  id: \'not_found\',\n  message: \'Couldn\\\'t find that app.\' }\n')
   })
-  
+
+  test
+  .stdout()
+  .command(['releases:show', '-a', 'intense-crag-70741'])
+  .it('show app name inside app response', ctx => {
+    expect(ctx.stdout).to.contain('intense-crag-70741')
+  })
+
   // brittle test
   test
   .stdout()
