@@ -18,7 +18,7 @@ export default class Show extends Command {
 
     this.log(`${body.length} most recent releases shown:`)
     const result = body.slice(body.length-20, body.length).reverse()
-    .map((bodyElement, index) => {
+    .map((bodyElement:any, index:any) => {
       const currentVersion = ((body.length) - index)
       return `${releaseInfo(currentVersion, bodyElement)}`
     })
@@ -26,7 +26,7 @@ export default class Show extends Command {
   }
 }
 
-function releaseInfo(currentVersion, {created_at, user, id}) {
+function releaseInfo(currentVersion:any, {created_at, user, id}:any) {
 return `
 Release v:${currentVersion}
   Start Date: ${created_at}
