@@ -5,6 +5,7 @@ import * as Heroku from '@heroku-cli/schema'
 export default class Show extends Command {
   
   static description = 'show latest releases for an app'
+  static exampleCommand = 'heroku releases:show -a intense-crag-70741'
 
   static flags = {
     remote: flags.remote(),
