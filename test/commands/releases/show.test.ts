@@ -1,12 +1,12 @@
-import { expect, test } from '@oclif/test'
+import {expect, test} from '@oclif/test'
 
 describe('show releases', () => {
   test
-    .stdout()
-    .command(['releases:show', '-a', 'intense-crag-7074'])
-    .it('displays "error" if incorrect app name passed to the app', ctx => {
-      expect(ctx.stdout).to.contain('error')
-    })
+  .stdout()
+  .command(['releases:show', '-a', 'intense-crag-7074'])
+  .it('displays "error" if incorrect app name passed to the app', ctx => {
+    expect(ctx.stdout).to.contain('error')
+  })
 
   // brittle test
   // test
@@ -17,28 +17,28 @@ describe('show releases', () => {
   // })
 
   test
-    .stdout()
-    .command(['releases:show', '-a', 'repository-dashboard'])
-    .it('show app name inside app response', ctx => {
-      expect(ctx.stdout).to.contain('repository-dashboard')
-    })
+  .stdout()
+  .command(['releases:show', '-a', 'repository-dashboard'])
+  .it('show app name inside app response', ctx => {
+    expect(ctx.stdout).to.contain('repository-dashboard')
+  })
 
   test
-    .stdout()
-    .command(['releases:show', '-a', 'repository-dashboard'])
-    .it('show the correct relese keys for the app', ctx => {
-      expect(ctx.stdout).to.contain('Application Name: repository-dashboard', 'most recent releases shown:')
-      expect(ctx.stdout).to.contain('Release v:', 'Start Date:')
-      expect(ctx.stdout).to.contain('Author: ')
-      expect(ctx.stdout).to.contain('Id:')
-    })
+  .stdout()
+  .command(['releases:show', '-a', 'repository-dashboard'])
+  .it('show the correct relese keys for the app', ctx => {
+    expect(ctx.stdout).to.contain('Application Name: repository-dashboard', 'most recent releases shown:')
+    expect(ctx.stdout).to.contain('Release v:', 'Start Date:')
+    expect(ctx.stdout).to.contain('Author: ')
+    expect(ctx.stdout).to.contain('Id:')
+  })
 
   test
-    .stdout()
-    .command(['releases:show', '-a', 'repository-dashboard'])
-    .it('ensure emoji displays for the app', ctx => {
-      expect(ctx.stdout).to.contain('🤓 ')
-    })
+  .stdout()
+  .command(['releases:show', '-a', 'repository-dashboard'])
+  .it('ensure emoji displays for the app', ctx => {
+    expect(ctx.stdout).to.contain('🤓 ')
+  })
 
   // brittle test
   // test
