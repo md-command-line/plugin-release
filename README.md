@@ -22,7 +22,7 @@ $ npm install -g plugin-release
 $ plugin-release COMMAND
 running command...
 $ plugin-release (-v|--version|version)
-plugin-release/0.1.4 darwin-x64 node-v10.22.0
+plugin-release/0.1.5 darwin-x64 node-v10.22.0
 $ plugin-release --help [COMMAND]
 USAGE
   $ plugin-release COMMAND
@@ -48,7 +48,7 @@ OPTIONS
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.4/src/commands/ask.ts)_
+_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.5/src/commands/ask.ts)_
 
 ## `plugin-release help [COMMAND]`
 
@@ -80,5 +80,5 @@ OPTIONS
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.4/src/commands/releases/show.ts)_
+_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.5/src/commands/releases/show.ts)_
 <!-- commandsstop -->
