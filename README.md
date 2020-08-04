@@ -19,48 +19,66 @@ Releasing Plugin to Heroku
 <!-- usage -->
 ```sh-session
 $ npm install -g plugin-release
-$ oclif-example COMMAND
+$ plugin-release COMMAND
 running command...
-$ oclif-example (-v|--version|version)
-plugin-release/0.1.0 darwin-x64 node-v10.5.0
-$ oclif-example --help [COMMAND]
+$ plugin-release (-v|--version|version)
+plugin-release/0.1.4 darwin-x64 node-v10.22.0
+$ plugin-release --help [COMMAND]
 USAGE
-  $ oclif-example COMMAND
+  $ plugin-release COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example ask`](#oclif-example-ask)
-* [`oclif-example releases:show`](#oclif-example-releasesshow)
+* [`plugin-release ask`](#plugin-release-ask)
+* [`plugin-release help [COMMAND]`](#plugin-release-help-command)
+* [`plugin-release releases:show`](#plugin-release-releasesshow)
 
-## `oclif-example ask`
+## `plugin-release ask`
 
 show application name if found
 
 ```
 USAGE
-  $ oclif-example ask
+  $ plugin-release ask
 
 OPTIONS
   -a, --app=app        (required) app to run command against
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.0/src/commands/ask.ts)_
+_See code: [src/commands/ask.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.4/src/commands/ask.ts)_
 
-## `oclif-example releases:show`
+## `plugin-release help [COMMAND]`
+
+display help for plugin-release
+
+```
+USAGE
+  $ plugin-release help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+
+## `plugin-release releases:show`
 
 show latest releases for an app
 
 ```
 USAGE
-  $ oclif-example releases:show
+  $ plugin-release releases:show
 
 OPTIONS
   -a, --app=app        (required) app to run command against
   -r, --remote=remote  git remote of app to use
 ```
 
-_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.0/src/commands/releases/show.ts)_
+_See code: [src/commands/releases/show.ts](https://github.com/MichaelDimmitt/plugin-release/blob/v0.1.4/src/commands/releases/show.ts)_
 <!-- commandsstop -->
