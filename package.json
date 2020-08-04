@@ -1,17 +1,21 @@
 {
   "name": "plugin-release",
   "description": "Plugin to handle release interactions for your Heroku App.",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "author": "michaeldimmitt @MichaelDimmitt",
   "bugs": "https://github.com/MichaelDimmitt/plugin-release/issues",
-  "bin": { "plugin-release": "./bin/run" },
+  "bin": {
+    "plugin-release": "./bin/run"
+  },
   "dependencies": {
+    "@heroku-cli/command": "^8.3.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "tslib": "^1"
   },
   "devDependencies": {
+    "@heroku-cli/schema": "^1.0.25",
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "@types/chai": "^4",
