@@ -1,5 +1,6 @@
 import {Command, flags} from '@heroku-cli/command'
 import * as Heroku from '@heroku-cli/schema'
+import { handleAppError, checkHerokuApi } from '../../helpers'
 
 // for future use: /apps/{app_id_or_name}/releases/{release_id_or_version}
 export default class Show extends Command {
@@ -12,15 +13,21 @@ export default class Show extends Command {
   }
 
   async run() {
-    const {flags} = this.parse(Show)
-    await Promise.all([
-      this.heroku.get<Heroku.App>(`/apps/${flags.app}/`),
-      this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
-    ]).then(([checkApp, queryRelease]) => {
-      let appName = checkApp
-      let {body}: any = queryRelease
-      logInfo(appName, body, this)
-    }).catch(error => { this.log('error', error.body) })
+    checkHerokuApi(this.heroku)
+    try{
+      const {flags} = this.parse(Show)
+      await Promise.all([
+        this.heroku.get<Heroku.App>(`/apps/${flags.app}/`),
+        this.heroku.get<Heroku.App>(`/apps/${flags.app}/releases/`)
+      ]).then(([checkApp, queryRelease]) => {
+        let appName = checkApp
+        let {body}: any = queryRelease
+        logInfo(appName, body, this)
+      })
+    }
+    catch(e){
+      handleAppError(e, this.heroku, this.log)
+    }
   }
 }
 
